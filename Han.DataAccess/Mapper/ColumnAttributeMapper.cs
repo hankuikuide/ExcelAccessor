@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,24 +18,41 @@ namespace Han.DataAccess.Mapper
 {
     public class ColumnAttributeMapper<T> : IRowMapper<T>
     {
+        private static Dictionary<string, Dictionary<string, string>> ColumnPropertyMapper= new Dictionary<string, Dictionary<string, string>>();
+
+        public ColumnAttributeMapper()
+        {
+            if (!ColumnPropertyMapper.ContainsKey(typeof(T).Name))
+            {
+                Dictionary<string, string> dict = new Dictionary<string, string>();
+
+                var props = typeof(T).GetProperties();
+
+                foreach (var prop in props)
+                {
+                    var attribute = prop.GetCustomAttributes(true).OfType<ColumnAttribute>().FirstOrDefault();
+                    dict.Add(attribute.Name, prop.Name);
+
+                }
+                ColumnPropertyMapper.Add(typeof(T).Name, dict);
+            }
+
+        }
+
         public T MapRow(DataRow dr)
         {
             T t = (T)Activator.CreateInstance(typeof(T));
             for (int i = 0; i < dr.Table.Columns.Count; i++)
             {
-                var props = t.GetType().GetProperties();
-
-                foreach (var prop in props)
+                if (ColumnPropertyMapper.ContainsKey(t.GetType().Name))
                 {
-                    var p = prop.GetCustomAttributes(true).OfType<ColumnAttribute>().FirstOrDefault();
+                    var dict = ColumnPropertyMapper[t.GetType().Name];
+                    var property = dict[dr.Table.Columns[i].ColumnName];
 
-                    if (p != null && p.Name == dr.Table.Columns[i].ColumnName)
-                    {
-                        if (dr[i] != DBNull.Value)
-                            prop.SetValue(t, dr[i], null);
-                    }
+                    PropertyInfo propertyInfo = t.GetType().GetProperty(property);
+                    if (propertyInfo != null && dr[i] != DBNull.Value)
+                        propertyInfo.SetValue(t, dr[i], null);
                 }
-                
             }
 
             return t;

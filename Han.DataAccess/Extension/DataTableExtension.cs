@@ -35,11 +35,5 @@ namespace Han.DataAccess.Extension
             return entites;
         }
         
-
-        private static PropertyInfo GetProperty()
-        {
-
-            return null;
-        }
     }
 }
