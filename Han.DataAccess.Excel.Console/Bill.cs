@@ -16,13 +16,13 @@ namespace Han.DataAccess.Excel.Console
 {
     public class Bill
     {
-        [Column("序号", "string")]
+        [Column("序号")]
         public int Id { get; set; }
 
-        [Column("姓名", "string")]
+        [Column("姓名")]
         public string PatientName { get; set; }
 
-        [Column("结算日期", "string")]
+        [Column("结算日期")]
         public DateTime BillDate  { get; set; }
 
     }

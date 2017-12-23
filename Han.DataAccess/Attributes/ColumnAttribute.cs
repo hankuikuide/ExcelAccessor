@@ -16,13 +16,11 @@ namespace Han.DataAccess.Attributes
     public class ColumnAttribute : Attribute
     {
         public string Name { get; set; }
+        
 
-        public string FieldType { get; set; }
-
-        public ColumnAttribute(string fieldName, string fieldType)
+        public ColumnAttribute(string fieldName)
         {
             this.Name = fieldName;
-            this.FieldType = fieldType;
         }
 
     }

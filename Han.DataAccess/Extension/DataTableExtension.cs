@@ -34,6 +34,5 @@ namespace Han.DataAccess.Extension
             }
             return entites;
         }
-        
     }
 }
