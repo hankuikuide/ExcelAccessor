@@ -21,7 +21,7 @@ namespace Han.DataAccess.Excel.OleDb
 
         public DataSet Load(ExcelConfig config)
         {
-            var dt = new DataSet();
+            var ds = new DataSet();
             var sheets = GetSheetNames(config.Path);
             var strConnTmp = string.Format(strConn, config.Path);
 
@@ -32,11 +32,11 @@ namespace Han.DataAccess.Excel.OleDb
                     var strsql = "SELECT * FROM [" + sheet + "]";
                     var oleDaExcel = new OleDbDataAdapter(strsql, oleConn);
                     oleConn.Open();
-                    oleDaExcel.Fill(dt, sheet);
+                    oleDaExcel.Fill(ds, sheet);
                 }
             }
 
-            return dt;
+            return ds;
         }
 
         /// <summary>

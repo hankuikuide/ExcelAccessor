@@ -48,5 +48,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Han.DataAccess.Excel.Npoi\Han.DataAccess.Excel.Npoi.csproj">
+      <Project>{9c809d14-81cb-47f2-bf29-4512762cf3be}</Project>
+      <Name>Han.DataAccess.Excel.Npoi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Han.DataAccess.Excel.OleDb\Han.DataAccess.Excel.OleDb.csproj">
+      <Project>{9fa5ae1c-14e5-4a73-9845-2deeb95ac61a}</Project>
+      <Name>Han.DataAccess.Excel.OleDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Han.DataAccess.Excel\Han.DataAccess.Excel.csproj">
+      <Project>{7ca11ea3-8d25-4e2c-81ed-d7a0c2603c1e}</Project>
+      <Name>Han.DataAccess.Excel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
