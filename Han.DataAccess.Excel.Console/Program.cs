@@ -21,7 +21,21 @@ namespace Han.DataAccess.Excel.Console
 
             TestColumnMapper();
 
+            TestJsonMapper();
+        }
 
+        public static void TestJsonMapper()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("PatientName", typeof(string));
+            dt.Columns.Add("BillDate", typeof(DateTime));
+
+            dt.Rows.Add(1, "HKK", DateTime.Now);
+            dt.Rows.Add(2, "WQ", DateTime.Now);
+            dt.Rows.Add(3, "HS", DateTime.Now);
+
+            var jsonBills = dt.ToJson(rowMapper: new JsonMapper());
         }
 
         public static void TestPropertyMapper()
