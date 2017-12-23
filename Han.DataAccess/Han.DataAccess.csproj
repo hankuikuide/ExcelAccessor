@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EDD5196D-4FFD-40AD-B8F7-E1FF3D92D3A1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Han.DataAccess.Excel.Console</RootNamespace>
-    <AssemblyName>Han.DataAccess.Excel.Console</AssemblyName>
+    <ProjectGuid>{A5C2F5FD-B341-40F5-947E-ADA1E1F7FBE7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Han.DataAccess</RootNamespace>
+    <AssemblyName>Han.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,30 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bill.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Attributes\ColumnAttribute.cs" />
+    <Compile Include="Extension\DataTableExtension.cs" />
+    <Compile Include="Mapper\ColumnAttributeMapper.cs" />
+    <Compile Include="Mapper\IRowMapper.cs" />
+    <Compile Include="Mapper\PropertyColumnMapper.cs" />
+    <Compile Include="ModelHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Han.DataAccess.Excel.Npoi\Han.DataAccess.Excel.Npoi.csproj">
-      <Project>{9c809d14-81cb-47f2-bf29-4512762cf3be}</Project>
-      <Name>Han.DataAccess.Excel.Npoi</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Han.DataAccess.Excel.OleDb\Han.DataAccess.Excel.OleDb.csproj">
-      <Project>{9fa5ae1c-14e5-4a73-9845-2deeb95ac61a}</Project>
-      <Name>Han.DataAccess.Excel.OleDb</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Han.DataAccess.Excel\Han.DataAccess.Excel.csproj">
-      <Project>{7ca11ea3-8d25-4e2c-81ed-d7a0c2603c1e}</Project>
-      <Name>Han.DataAccess.Excel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Han.DataAccess\Han.DataAccess.csproj">
-      <Project>{A5C2F5FD-B341-40F5-947E-ADA1E1F7FBE7}</Project>
-      <Name>Han.DataAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

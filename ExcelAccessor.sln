@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Han.DataAccess.Excel.Npoi",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Han.DataAccess.Excel.OleDb", "Han.DataAccess.Excel.OleDb\Han.DataAccess.Excel.OleDb.csproj", "{9FA5AE1C-14E5-4A73-9845-2DEEB95AC61A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Han.DataAccess", "Han.DataAccess\Han.DataAccess.csproj", "{A5C2F5FD-B341-40F5-947E-ADA1E1F7FBE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9FA5AE1C-14E5-4A73-9845-2DEEB95AC61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FA5AE1C-14E5-4A73-9845-2DEEB95AC61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FA5AE1C-14E5-4A73-9845-2DEEB95AC61A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5C2F5FD-B341-40F5-947E-ADA1E1F7FBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5C2F5FD-B341-40F5-947E-ADA1E1F7FBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5C2F5FD-B341-40F5-947E-ADA1E1F7FBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5C2F5FD-B341-40F5-947E-ADA1E1F7FBE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
