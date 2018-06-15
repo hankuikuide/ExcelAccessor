@@ -36,6 +36,14 @@ namespace Han.DataAccess.Extension
             return entites;
         }
 
+
+        /// <summary>
+        /// Deprecate 可以直接使用newtonsoft进行序列化
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dt"></param>
+        /// <param name="rowMapper"></param>
+        /// <returns></returns>
         public static string ToJson<T>(this DataTable dt, IRowMapper<T> rowMapper)
         {
             if (dt == null || dt.Rows.Count == 0)
